@@ -1,5 +1,7 @@
 body {
-    background: url("../img/diamond_upholstery.png") repeat;
+    background: #000 url('../img/body_bg') repeat right bottom;
+    background-repeat: repeat;
+    background-position: center top; 
 }
 
 #mainPage .head{
