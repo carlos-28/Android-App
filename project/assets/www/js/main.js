@@ -1,4 +1,4 @@
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-	$('#content').innerHTML("Hello World");
-}
+ document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                $("#content").html("Hello, World! Demo  JQuery Mobile com PhoneGap 2!");
+            }
