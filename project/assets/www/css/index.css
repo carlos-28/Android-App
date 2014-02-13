@@ -1,3 +1,7 @@
 body {
     background: url(../img/diamond_upholstery.png) repeat fixed right bottom;
 }
+
+#mainPage .head{
+    background-color: transparent;
+}
