@@ -1,9 +1,11 @@
 .ui-page-theme-a {
-    background-color: transparent !important;
+    
+    background: transparent url(../img/body_bg.jpg) repeat fixed center bottom !important;
+    background-size : cover;
 }
 
 body {
-    background: #dbdbdb url(../img/body_bg.png) repeat fixed center bottom !important;
+    
 }
 
 #main {
