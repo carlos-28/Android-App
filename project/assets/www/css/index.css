@@ -2,16 +2,17 @@
     padding-top: 100px;
 }
 
+#main .head, #main .foot {
+    background-color: transparent !important;
+    border: none;
+}
+
 #main .head {
     background: url(../img/logo.png);
     background-repeat: no-repeat;
-    background-color: transparent !important;
     background-position: center;
-    border: none;
-    margin: 0 auto;
     min-height: 78px;
     margin-bottom: 30px;
-    text-align: center;
 }
 
 #main a {
