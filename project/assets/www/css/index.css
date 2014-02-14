@@ -26,9 +26,5 @@ body {
 #main a {
     background: #b82c12 url(../img/nav-bg.png) repeat-x center top;
     color: #fff;
-}
-
-#main a:before {
-    content: '';
-    background: url(../img/icon.png);
+    margin-bottom: 30px;
 }
