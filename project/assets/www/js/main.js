@@ -17,6 +17,14 @@ $(document).on("pageinit", "#main", function(){
     
   }
 
+  $.ajax({type: "GET", URL: "http://animecodex.com.br/feed", dataType: "xml", success: xmlParser});
+  function xmlParser(xml) {
+    $(xml).find("channel").each(function(){
+      $("#segundoContent").append($(this).find("title").text());
+    })    
+  }
+  
+
   function hideMain() {
     $("#mainHdr").hide();
     $("#mainContent").hide();
