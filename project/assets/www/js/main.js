@@ -9,7 +9,7 @@ $(document).on("pageinit", "#main", function() {
             $.mobile.navigate('#feed');
             $(".headBar h1").html(" Feed");
 
-            var url = "https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=codecademy&callback=?"
+            var url = "http://animecodex.com.br/api/get_recent_posts/&callback=?"
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -20,6 +20,7 @@ $(document).on("pageinit", "#main", function() {
                 })
                 .fail(function() {
                     console.log("error");
+                    alert("error!");
                 })
                 .always(function() {
                     console.log("complete");
