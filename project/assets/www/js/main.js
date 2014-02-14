@@ -17,10 +17,12 @@ $(document).on("pageinit", "#main", function() {
             })
                 .success(function(a) {
                     alert("success");
+                    $("#segundoContent").html("Sucesso");
                 })
                 .fail(function() {
                     console.log("error");
                     alert("error!");
+                    $("#segundoContent").html("Sucesso");
                 })
                 .always(function() {
                     console.log("complete");
