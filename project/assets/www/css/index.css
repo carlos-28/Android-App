@@ -18,7 +18,7 @@ body {
 }
 
 #main .head {
-    background: url(../img/logo.png);
+    /*background: url(../img/logo.png);*/
     background-repeat: no-repeat;
     background-position: center;
     min-height: 78px;

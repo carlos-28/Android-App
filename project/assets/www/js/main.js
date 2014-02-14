@@ -7,7 +7,7 @@ $(document).on("pageinit", "#main", function() {
     function getClicado(clicked) {
         if (clicked == "AC") {
             $.mobile.navigate('#feed');
-            $(".headBar h1").html("AnimeCodex Feed");
+            $(".headBar h1").html(" Feed");
 
             var url = "https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=codecademy&callback=?"
             $.ajax({
@@ -15,8 +15,8 @@ $(document).on("pageinit", "#main", function() {
                 type: 'GET',
                 dataType: 'json',
             })
-                .done(function() {
-                    $("#segundoContent").append('Sucesso!');
+                .success(function(a) {
+                    alert("success");
                 })
                 .fail(function() {
                     console.log("error");
@@ -29,7 +29,7 @@ $(document).on("pageinit", "#main", function() {
             //$("#segundoContent").html("AnimeCodex.Com");
         } else if (clicked == "ACN") {
             $.mobile.navigate('#feed');
-            $(".headBar h1").html("AnimeCodexNetwork Feed")
+            $(".headBar h1").html(" Feed")
             //$("#segundoContent").html("AnimeCodexNetwork.Com");
         }
 
