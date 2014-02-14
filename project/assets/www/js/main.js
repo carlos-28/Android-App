@@ -5,6 +5,7 @@ $(document).on("pageinit", "#main", function() {
     })
 
     function getClicado(clicked) {
+        $("#segundoContent").append('Processando...')
         if (clicked == "AC") {
             $.mobile.navigate('#feed');
             $(".headBar h1").html(" Feed");
@@ -25,7 +26,7 @@ $(document).on("pageinit", "#main", function() {
                     alert("error!");
                     $("#segundoContent").html("deu erro");
                 })
-                .always(function() {
+                .complete(function() {
                     console.log("complete");
                 });
 
