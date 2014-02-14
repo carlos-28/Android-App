@@ -9,20 +9,21 @@ $(document).on("pageinit", "#main", function() {
             $.mobile.navigate('#feed');
             $(".headBar h1").html(" Feed");
 
-            var url = "http://animecodex.com.br/api/get_recent_posts/&callback=?"
+            var url = "http://animecodex.com.br/api/get_recent_posts/"
             $.ajax({
                 url: url,
                 type: 'GET',
-                dataType: 'json',
+                dataType: 'jsonp',
             })
                 .success(function(a) {
+                    console.log(a);
                     alert("success");
                     $("#segundoContent").html("Sucesso");
                 })
                 .fail(function() {
                     console.log("error");
                     alert("error!");
-                    $("#segundoContent").html("Sucesso");
+                    $("#segundoContent").html("deu erro");
                 })
                 .always(function() {
                     console.log("complete");
