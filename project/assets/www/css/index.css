@@ -1,3 +1,7 @@
+#main {
+    padding-top: 30px;
+}
+
 #main .head {
     background: url(../img/logo.png);
     background-repeat: no-repeat;
@@ -6,9 +10,16 @@
     border: none;
     margin: 0 auto;
     min-height: 78px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-#main {
-    padding-top: 30px;
+#main a {
+    background: #b82c12 url(../img/nav-bg.png) repeat-x center top;
+    color: #fff;
+}
+
+#main a:before {
+    content: '';
+    background: url(../img/icon.png);
 }
