@@ -16,7 +16,7 @@ $(document).on("pageinit", "#main", function() {
                 dataType: 'json',
             })
                 .done(function() {
-                    console.log("success");
+                    $("#segundoContent").append('Sucesso!');
                 })
                 .fail(function() {
                     console.log("error");
