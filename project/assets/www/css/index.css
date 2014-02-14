@@ -1,6 +1,11 @@
-body {
-    background-color: #dbdbdb;
+.ui-page-theme-a {
+    background-color: transparent !important;
 }
+
+body {
+    background: #dbdbdb url(../img/body_bg.png) repeat fixed center bottom !important;
+}
+
 #main {
     padding-top: 100px;
 }
