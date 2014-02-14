@@ -30,3 +30,7 @@ body {
     color: #fff;
     margin-bottom: 30px;
 }
+
+#feed .headBar {
+    width: 100%;
+}
