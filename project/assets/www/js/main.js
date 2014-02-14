@@ -5,7 +5,7 @@ $(document).on("pageinit", "#main", function() {
     })
 
     function getClicado(clicked) {
-        $("#segundoContent").append('Processando...')
+        $("#segundoContent").append('<img src="img/wait.gif">');
         if (clicked == "AC") {
             $.mobile.navigate('#feed');
             $(".headBar h1").html(" Feed");
