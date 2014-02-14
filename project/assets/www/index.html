@@ -8,9 +8,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
-<script type="text/javascript" charset="utf-8">
-
-</script>
+<script src="js/main.js"></script>
 </head>
 <body>
 <!-- Start of first page -->
@@ -21,25 +19,25 @@
     </div><!-- /header -->
 
     <div role="main" class="ui-content">
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">AnimeCodex.Com</a>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">AnimeCodexNetwork.Com</a>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left" rel="AC">AnimeCodex.Com</a>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left" rel="ACN">AnimeCodexNetwork.Com</a>
     </div><!-- /content -->
 
     <div data-role="footer" class="foot">
         
     </div><!-- /footer -->
-</div><!-- /page -->
+</div><!-- /page_MAIN -->
 
 <!-- Start of second page -->
-<div data-role="page" id="bar">
+<div data-role="page" id="feed">
 
-    <div data-role="header">
-        <h1>Bar</h1>
+    <div data-role="header" class="headBar">
+        <h1>teste</h1>
     </div><!-- /header -->
 
-    <div role="main" class="ui-content">
-        <p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
-        <p><a href="#foo">Back to foo</a></p>
+    <div role="main" class="ui-content" id="segundoContent">
+        
+        <p>Back to foo</p>
     </div><!-- /content -->
 
     <div data-role="footer">
