@@ -7,7 +7,7 @@ $(document).on("pageinit", "#main", function(){
     if(clicked=="AC"){
       $.mobile.navigate('#feed');
       $(".headBar h1").html("AnimeCodex Feed");
-      $("#segundoContent").html("AnimeCodex.Com");
+      //$("#segundoContent").html("AnimeCodex.Com");
     }
     else if(clicked=="ACN"){
       $.mobile.navigate('#feed');
@@ -17,11 +17,9 @@ $(document).on("pageinit", "#main", function(){
     
   }
 
-  $.ajax({type: "GET", URL: "http://animecodex.com.br/feed", dataType: "xml", success: xmlParser});
+  $.getJSON("https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=codecademy&callback=?", xmlParser(response));
   function xmlParser(xml) {
-    $(xml).find("channel").each(function(){
-      $("#segundoContent").append($(this).find("title").text());
-    })    
+   $('#segundoContent').html(JSON.stringify(response));
   }
   
 
