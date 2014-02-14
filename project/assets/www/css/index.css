@@ -1,4 +1,14 @@
-#mainPage .head{
-    background-color: transparent;
-    min-height: 90px
+#main .head {
+    background: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-color: transparent !important;
+    background-position: center;
+    border: none;
+    margin: 0 auto;
+    min-height: 78px;
+    text-align: center;
+}
+
+#main {
+    padding-top: 30px;
 }
