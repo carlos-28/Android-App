@@ -14,16 +14,16 @@
 <!-- Start of first page -->
 <div data-role="page" id="main">
 
-    <div data-role="header" class="head">
+    <div data-role="header" class="head" id="mainHdr">
         
     </div><!-- /header -->
 
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content" id="mainContent">
         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left" rel="AC">AnimeCodex.Com</a>
         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left" rel="ACN">AnimeCodexNetwork.Com</a>
     </div><!-- /content -->
 
-    <div data-role="footer" class="foot">
+    <div data-role="footer" class="foot" id="mainftr">
         
     </div><!-- /footer -->
 </div><!-- /page_MAIN -->
@@ -31,7 +31,7 @@
 <!-- Start of second page -->
 <div data-role="page" id="feed">
 
-    <div data-role="header" class="headBar">
+    <div data-role="header" class="headBar" id="feedHdr">
         <h1>teste</h1>
     </div><!-- /header -->
 
@@ -40,9 +40,21 @@
         <p>Back to foo</p>
     </div><!-- /content -->
 
-    <div data-role="footer">
+    <div data-role="footer" id="feedFtr">
         <h4>Page Footer</h4>
     </div><!-- /footer -->
 </div><!-- /page -->
+
+<!-- Start of Progress Page -->
+<div data-role="page" id="progressDiv">
+    <div data-role="Header">
+        <h1>Processando...</h1>
+    </div>
+    <div role="main" class="ui-content" id="progressContent">
+        <div align="CENTER"><h4>Espere por favor.</h4></div>
+        <div align="CENTER"><img src="img/wait.gif"></div>
+    </div>
+    <div data-role="footer" id="ftrProgress"></div>
+</div>
 </body>
 </html>

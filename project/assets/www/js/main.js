@@ -16,5 +16,24 @@ $(document).on("pageinit", "#main", function(){
     }
     
   }
+
+  function hideMain() {
+    $("#mainHdr").hide();
+    $("#mainContent").hide();
+    $("#mainFtr").hide();
+  }
+  function hideFeed() {
+    $("#feedHdr").hide();
+    $("#segundoContent").hide();
+    $("#feedFtr").hide();
+  }
+
+  function showProgress() {
+    hideMain();
+    hideFeed();
+    $("#progressHdr").show();
+    $("#progressContent").show();
+    $("#ftrProgress").show();
+  }
 })
 
