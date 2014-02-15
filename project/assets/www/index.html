@@ -32,29 +32,28 @@
 <div data-role="page" id="feed">
 
     <div data-role="header" class="feedHead" data-theme="a" id="feedHdr">
-        <a href="#main" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
+        <a href="#main" id="feedHome" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
     </div><!-- /header -->
 
-    <div role="main" class="ui-content" id="feedContent">
+    <div role="main" class="ui-content ui-grid-b ui-responsive" id="feedContent">
         
-        <ul data-role="listview" class="feedUl"></ul>
     </div><!-- /content -->
 
     <div data-role="footer" id="feedFtr">
-        <h4>Page Footer</h4>
+        
     </div><!-- /footer -->
 </div><!-- /page -->
 
-<!-- Start of Progress Page -->
-<div data-role="page" id="progressDiv">
-    <div data-role="Header" id="progressHdr">
-        <h1>Processando...</h1>
+<!-- Start of third page -->
+<div data-role="page" id="singleFeed">
+    <div data-role="header" id="singleHdr">
+        <a href="#main" id="feedHome" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
     </div>
-    <div role="main" class="ui-content" id="progressContent">
-        <div align="CENTER"><h4>Espere por favor.</h4></div>
-        <div align="CENTER"><img src="img/wait.gif"></div>
-    </div>
-    <div data-role="footer" id="ftrProgress"></div>
-</div>
+    <div role="main" class="ui-content" id="singleContent"></div>
+    <div data-role="footer" id="singleFtr"></div>
+</div><!-- /page -->
+
+
+
 </body>
 </html>
