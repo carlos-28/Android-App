@@ -8,8 +8,13 @@ $(document).on("pageinit", "#main", function() {
     var inputCheck = $("#sim");
     var mostrarResumo = "nao";
 
+    // Trigger configs()
+    configs();
+
+    // Reload panel
     $("#mypanel").trigger("updatelayout");
 
+    // Click event and get site
     $("#main a").on("click", function() {
         var clicado = $(this).attr('rel');
         if (clicado == "AC") {
@@ -22,12 +27,13 @@ $(document).on("pageinit", "#main", function() {
 
 
 
-
+    // Feed AnimeCodex.Com
     function siteCodex() {
         feedContent.html('<div id="loading" align="CENTER"><img src="img/wait.gif"></div>');
         getFeed(codex);
     }
 
+    // Get feed
     function getFeed(url) {
         $.ajax({
             url: url,
@@ -41,6 +47,7 @@ $(document).on("pageinit", "#main", function() {
 
     }
 
+    // Populate #feed
     function populateFeed(response) {
         feedContent.html("");
         var num = 1;
@@ -54,16 +61,22 @@ $(document).on("pageinit", "#main", function() {
     }
 
 
-    inputCheck.on('change', function() {
+    // Configurations
+    function configs() {
+        // Show Excerpt
+        inputCheck.on('change', function() {
 
-        if ($(this).is(":checked")) {
-            mostrarResumo = "sim";
-            siteCodex();
-        } else {
-            mostrarResumo = "nao";
-            siteCodex();
-        }
-    });
+            if ($(this).is(":checked")) {
+                mostrarResumo = "sim";
+                siteCodex();
+            } else {
+                mostrarResumo = "nao";
+                siteCodex();
+            }
+        });
+        // Show Excerpt
+    }
+
 
 
 })
