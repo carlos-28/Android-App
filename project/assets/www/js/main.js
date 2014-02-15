@@ -55,7 +55,7 @@ $(document).on("pageinit", "#main", function() {
 
             feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "</a>");
             if (mostrarResumo == "sim") {
-                feedContent.append("<div data-inset='true' id='" + newsItem.slug + "'><p>" + newsItem.excerpt + "</p></div>");
+                feedContent.append("<div data-inset='true' id='resumo'><p>" + newsItem.excerpt + "</p></div><hr>");
             }
         });
     }
