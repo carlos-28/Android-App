@@ -39,7 +39,9 @@ $(document).on("pageinit", "#main", function() {
     function populateFeed(response) {
         feedContent.html("");
         $.each(response.posts, function(i, newsItem) {
+            feedContent.append('<div align="CENTER">')
             feedContent.append("<li>Titulo: " + newsItem.title + "<br>Data: " + newsItem.date + "<br>Autor: " + newsItem.author.name + "</li>");
+            feedContent.append("</div>");
         });
     }
 
