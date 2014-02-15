@@ -77,7 +77,7 @@ body {
     display: block;
     margin-bottom: 5px;
     min-height: 388px;
-    width: 202px;
+    width: 50%;
 }
 
 #newsEntry .newsBgimg {
@@ -91,7 +91,6 @@ body {
     overflow: hidden;
     transition: opacity 0.35s linear;
     transition-delay: 0.2s;
-    width: 200px;
 }
 
 #newsEntry .newsTitle {
