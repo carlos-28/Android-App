@@ -53,7 +53,7 @@ $(document).on("pageinit", "#main", function() {
         var num = 1;
         $.each(response.posts, function(i, newsItem) {
 
-            feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='#" + newsItem.slug + "'>" + newsItem.title + "</a>");
+            feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "</a>");
             if (mostrarResumo == "sim") {
                 feedContent.append("<div data-inset='true' id='" + newsItem.slug + "'><p>" + newsItem.excerpt + "</p></div>");
             }
