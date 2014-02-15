@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+
 <script src="js/main.js"></script>
 </head>
 <body>
@@ -30,28 +31,33 @@
 
 <!-- Start of second page -->
 <div data-role="page" id="feed">
+    <div data-role="panel" id="mypanel" data-position="right">
+    <!-- panel content goes here -->
+    <form>
+            <fieldset data-role="controlgroup">
+                <input type="checkbox" name="checkbox-1a" id="sim">
+                <label for="sim">Mostrar resumo</label>
+            </fieldset>
+    </form>
+</div><!-- /panel -->
 
     <div data-role="header" class="feedHead" data-theme="a" id="feedHdr">
         <a href="#main" id="feedHome" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
+        <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-bars ui-btn-icon-notext ui-shadow" title=" Navigation " data-form="ui-icon" data-role="button" role="button" href="#mypanel"> Navigation </a>
     </div><!-- /header -->
 
-    <div role="main" class="ui-content ui-grid-b ui-responsive" id="feedContent">
+    <div role="main" class="ui-content ui-grid-a ui-responsive" id="feedContent">
         
     </div><!-- /content -->
+    
 
     <div data-role="footer" id="feedFtr">
         
     </div><!-- /footer -->
+
 </div><!-- /page -->
 
-<!-- Start of third page -->
-<div data-role="page" id="singleFeed">
-    <div data-role="header" id="singleHdr">
-        <a href="#main" id="feedHome" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
-    </div>
-    <div role="main" class="ui-content" id="singleContent"></div>
-    <div data-role="footer" id="singleFtr"></div>
-</div><!-- /page -->
+
 
 
 

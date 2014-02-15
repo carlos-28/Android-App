@@ -4,12 +4,11 @@ $(document).on("pageinit", "#main", function() {
     var feedContent = $("#feedContent");
     var feedHome = $("#feedHome");
     var main = $("#main");
-    var item = "";
+    var panel = $("#mypanel");
+    var inputCheck = $("#sim");
+    var mostrarResumo = "nao";
 
-
-
-
-
+    $("#mypanel").trigger("updatelayout");
 
     $("#main a").on("click", function() {
         var clicado = $(this).attr('rel');
@@ -47,14 +46,24 @@ $(document).on("pageinit", "#main", function() {
         var num = 1;
         $.each(response.posts, function(i, newsItem) {
 
-            if (num % 2 != 0) {
-                feedContent.append("<div class='ui-block-a'><a class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "</a>  </div>  ");
-            } else {
-                feedContent.append("<div class='ui-block-b'><a class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "</a> </div>   ");
+            feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='#" + newsItem.slug + "'>" + newsItem.title + "</a>");
+            if (mostrarResumo == "sim") {
+                feedContent.append("<div data-inset='true' id='" + newsItem.slug + "'><p>" + newsItem.excerpt + "</p></div>");
             }
-
-            num += 1;
         });
     }
+
+
+    inputCheck.on('change', function() {
+
+        if ($(this).is(":checked")) {
+            mostrarResumo = "sim";
+            siteCodex();
+        } else {
+            mostrarResumo = "nao";
+            siteCodex();
+        }
+    });
+
 
 })
