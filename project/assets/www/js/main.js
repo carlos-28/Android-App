@@ -1,4 +1,6 @@
 $(document).on("pageinit", "#main", function() {
+
+    // Variables
     var codex = "http://animecodex.com.br/api/get_recent_posts/";
     var network = "http://animecodexnetwork.com.br";
     var feedContent = $("#feedContent");
@@ -7,6 +9,8 @@ $(document).on("pageinit", "#main", function() {
     var panel = $("#mypanel");
     var inputCheck = $("#sim");
     var mostrarResumo = "nao";
+    var changeRead = $("input[name=leitura]");
+    var readStyle = "grid";
 
     // Trigger configs()
     configs();
@@ -53,10 +57,16 @@ $(document).on("pageinit", "#main", function() {
         var num = 1;
         $.each(response.posts, function(i, newsItem) {
 
-            feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "</a>");
-            if (mostrarResumo == "sim") {
-                feedContent.append("<div data-inset='true' id='resumo'><p>" + newsItem.excerpt + "</p></div><hr>");
+            if (readStyle == "lista") {
+                feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "</a>");
+                if (mostrarResumo == "sim") {
+                    feedContent.append("<div data-inset='true' id='resumo'><p>" + newsItem.excerpt + "</p></div><hr>");
+                }
+            } else {
+                feedContent.append(" <div id='newsEntry'> <div class='newsSingle'> <div class='newsBgimg'><img src='" + newsItem.thumbnail + "'> </div><a class='newsTitle' href='" + newsItem.url + "'>" + newsItem.title + "</a > <div class='newsResumo'>" + newsItem.excerpt + " </div> </div>")
             }
+
+
         });
     }
 
@@ -65,7 +75,6 @@ $(document).on("pageinit", "#main", function() {
     function configs() {
         // Show Excerpt
         inputCheck.on('change', function() {
-
             if ($(this).is(":checked")) {
                 mostrarResumo = "sim";
                 siteCodex();
@@ -75,8 +84,21 @@ $(document).on("pageinit", "#main", function() {
             }
         });
         // Show Excerpt
+
+        // Change read style
+        changeRead.on('change', function() {
+            if ($(this).value == "lista") {
+                readStyle = "lista";
+                siteCodex();
+            } else if ($(this).value == "grid") {
+                readStyle = "grid";
+                siteCodex();
+            }
+        });
+
+        // Change read style
     }
 
-
+    // < div id = 'newsEntry' > < div class = 'newsSinglie' > < div class = 'newsBgimg' > < /div><a class='newsTitle'></a > < div class = 'newsResumo' > < /div> </div >
 
 })
