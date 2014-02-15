@@ -2,6 +2,8 @@ $(document).on("pageinit", "#main", function() {
     var codex = "http://animecodex.com.br/api/get_recent_posts/";
     var network = "http://animecodexnetwork.com.br";
     var feedContent = $("#feedContent");
+    var feedDivOpen = "<div class='item'>";
+    var feedDivClose = "</div>";
 
 
 
@@ -39,9 +41,7 @@ $(document).on("pageinit", "#main", function() {
     function populateFeed(response) {
         feedContent.html("");
         $.each(response.posts, function(i, newsItem) {
-            feedContent.append('<div align="CENTER">')
-            feedContent.append("<li>Titulo: " + newsItem.title + "<br>Data: " + newsItem.date + "<br>Autor: " + newsItem.author.name + "</li>");
-            feedContent.append("</div>");
+            feedContent.append(feedDivOpen + "Titulo: " + newsItem.title + "<br>Data: " + newsItem.date + "<br>Autor: " + newsItem.author.name + feedDivClose);
         });
     }
 

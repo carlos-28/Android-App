@@ -34,3 +34,7 @@ body {
 #feed .headBar {
     width: 100%;
 }
+
+#feed .ui-content {
+    text-align: center;
+}
