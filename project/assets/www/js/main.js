@@ -9,8 +9,9 @@ $(document).on("pageinit", "#main", function() {
     var panel = $("#mypanel");
     var inputCheck = $("#sim");
     var mostrarResumo = "nao";
-    var changeRead = $("input[name=leitura]");
-    var readStyle = "grid";
+    var changeRead = $("input[name=leitura]:radio");
+    var readStyle = "lista";
+    var imagem = "";
 
     // Trigger configs()
     configs();
@@ -63,7 +64,12 @@ $(document).on("pageinit", "#main", function() {
                     feedContent.append("<div data-inset='true' id='resumo'><p>" + newsItem.excerpt + "</p></div><hr>");
                 }
             } else {
-                feedContent.append(" <div id='newsEntry'> <div class='newsSingle'> <div class='newsBgimg'><img src='" + newsItem.thumbnail + "'> </div><a class='newsTitle' href='" + newsItem.url + "'>" + newsItem.title + "</a > <div class='newsResumo'>" + newsItem.excerpt + " </div> </div>")
+                if (newsItem.thumbnail) {
+                    imagem = newsItem.thumbnail;
+                } else {
+                    imagem = "img/icon.png";
+                }
+                feedContent.append(" <div id='newsEntry' align'CENTER'> <div class='newsSingle'> <div class='newsBgimg'><img src='" + imagem + "'> </div><a class='newsTitle' href='" + newsItem.url + "'>" + newsItem.title + "</a > <div class='newsResumo'>" + newsItem.excerpt + " </div> </div>");
             }
 
 
@@ -84,13 +90,12 @@ $(document).on("pageinit", "#main", function() {
             }
         });
         // Show Excerpt
-
         // Change read style
         changeRead.on('change', function() {
-            if ($(this).value == "lista") {
+            if ($(this).val() == "lista") {
                 readStyle = "lista";
                 siteCodex();
-            } else if ($(this).value == "grid") {
+            } else if ($(this).val() == "grid") {
                 readStyle = "grid";
                 siteCodex();
             }

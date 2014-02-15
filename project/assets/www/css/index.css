@@ -75,6 +75,8 @@ body {
 
 #newsEntry .newsSingle {
     display: block;
+    margin-bottom: 5px;
+    min-height: 388px;
     width: 202px;
 }
 
