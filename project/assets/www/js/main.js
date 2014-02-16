@@ -86,6 +86,7 @@ $(document).on("pageinit", "#main", function() {
     // Get Categories
     function getCategories(i) {
         var count = 0;
+        categories.length = 0;
         $.each(i, function(index, val) {
             /* iterate through array or object */
             console.log(val.title);
