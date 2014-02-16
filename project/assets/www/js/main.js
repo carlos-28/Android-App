@@ -12,6 +12,8 @@ $(document).on("pageinit", "#main", function() {
     var changeRead = $("input[name=leitura]:radio");
     var readStyle = "lista";
     var imagem = "";
+    var loadingPage = "<div id='loading' align='CENTER'><img src='img/wait.gif'></div>";
+    var categories = new Array();
 
     // Trigger configs()
     configs();
@@ -34,7 +36,7 @@ $(document).on("pageinit", "#main", function() {
 
     // Feed AnimeCodex.Com
     function siteCodex() {
-        feedContent.html('<div id="loading" align="CENTER"><img src="img/wait.gif"></div>');
+        feedContent.html(loadingPage);
         getFeed(codex);
     }
 
@@ -55,15 +57,22 @@ $(document).on("pageinit", "#main", function() {
     // Populate #feed
     function populateFeed(response) {
         feedContent.html("");
-        var num = 1;
         $.each(response.posts, function(i, newsItem) {
 
+            // Retrieve the categories
+            var category = this.categories;
+            getCategories(category);
+
+            // Populate
+            // Sem imagem
             if (readStyle == "lista") {
-                feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "</a>");
+                feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "<br><small>" + categories + "</small></a>");
+                // Com resumo
                 if (mostrarResumo == "sim") {
                     feedContent.append("<div data-inset='true' id='resumo'><p>" + newsItem.excerpt + "</p></div><hr>");
                 }
             } else {
+                // Com imagem
                 if (newsItem.thumbnail) {
                     imagem = newsItem.thumbnail;
                 } else {
@@ -71,10 +80,20 @@ $(document).on("pageinit", "#main", function() {
                 }
                 feedContent.append(" <div id='newsEntry' align'CENTER'> <div class='newsSingle'> <div class='newsBgimg'><img src='" + imagem + "'> </div><a class='newsTitle' href='" + newsItem.url + "'>" + newsItem.title + "</a > <div class='newsResumo'>" + newsItem.excerpt + " </div> </div>");
             }
-
-
         });
     }
+
+    // Get Categories
+    function getCategories(i) {
+        var count = 0;
+        $.each(i, function(index, val) {
+            /* iterate through array or object */
+            console.log(val.title);
+            categories[count] = val.title;
+            ++count;
+        });
+    }
+    // Get Categories
 
 
     // Configurations
@@ -90,6 +109,7 @@ $(document).on("pageinit", "#main", function() {
             }
         });
         // Show Excerpt
+
         // Change read style
         changeRead.on('change', function() {
             if ($(this).val() == "lista") {
@@ -100,10 +120,6 @@ $(document).on("pageinit", "#main", function() {
                 siteCodex();
             }
         });
-
         // Change read style
     }
-
-    // < div id = 'newsEntry' > < div class = 'newsSinglie' > < div class = 'newsBgimg' > < /div><a class='newsTitle'></a > < div class = 'newsResumo' > < /div> </div >
-
 })

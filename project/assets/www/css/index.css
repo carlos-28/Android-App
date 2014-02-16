@@ -110,3 +110,12 @@ body {
     margin-top: 2px;
     overflow: hidden;
 }
+
+#feed small {
+    color: #808080;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 2px;
+    overflow: hidden;
+    text-decoration: underline;
+}
