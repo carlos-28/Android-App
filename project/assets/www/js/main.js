@@ -1,17 +1,18 @@
 $(document).on("pageinit", "#main", function() {
 
     // Variables
-    var codex = "http://animecodex.com.br/api/get_recent_posts/";
-    var network = "http://animecodexnetwork.com.br";
+    var urlCodex = "http://animecodex.com.br/api/get_recent_posts/";
+    var UrlNetwork = "http://animecodexnetwork.com.br";
     var feedContent = $("#feedContent");
     var feedHome = $("#feedHome");
     var main = $("#main");
     var panel = $("#mypanel");
     var inputCheck = $("#sim");
-    var mostrarResumo = "nao";
+    var mostrarResumo = false;
     var changeRead = $("input[name=leitura]:radio");
     var readStyle = "lista";
-    var imagem = "";
+    var imagem = null;
+    var imagemDafault = "img/icon.png";
     var loadingPage = "<div id='loading' align='CENTER'><img src='img/wait.gif'></div>";
     var categories = new Array();
 
@@ -19,16 +20,16 @@ $(document).on("pageinit", "#main", function() {
     configs();
 
     // Reload panel
-    $("#mypanel").trigger("updatelayout");
+    panel.trigger("updatelayout");
 
     // Click event and get site
-    $("#main a").on("click", function() {
+    main.find('a').on("click", function() {
         var clicado = $(this).attr('rel');
         if (clicado == "AC") {
             siteCodex();
         } else if (clicado == "ACN") {
             siteNetwork();
-        };
+        }
     });
 
 
@@ -37,7 +38,7 @@ $(document).on("pageinit", "#main", function() {
     // Feed AnimeCodex.Com
     function siteCodex() {
         feedContent.html(loadingPage);
-        getFeed(codex);
+        getFeed(urlCodex);
     }
 
     // Get feed
@@ -49,7 +50,7 @@ $(document).on("pageinit", "#main", function() {
                 console.log(textStatus);
                 item = data;
                 populateFeed(item);
-            },
+            }
         });
 
     }
@@ -68,7 +69,7 @@ $(document).on("pageinit", "#main", function() {
             if (readStyle == "lista") {
                 feedContent.append("<a data-ajax='false' class='ui-btn ui-shadow ui-corner-all' href='" + newsItem.url + "'>" + newsItem.title + "<br><small>" + categories + "</small></a>");
                 // Com resumo
-                if (mostrarResumo == "sim") {
+                if (mostrarResumo == true) {
                     feedContent.append("<div data-inset='true' id='resumo'><p>" + newsItem.excerpt + "</p></div><hr>");
                 }
             } else {
@@ -76,7 +77,7 @@ $(document).on("pageinit", "#main", function() {
                 if (newsItem.thumbnail) {
                     imagem = newsItem.thumbnail;
                 } else {
-                    imagem = "img/icon.png";
+                    imagem = imagemDafault;
                 }
                 feedContent.append(" <div id='newsEntry' align'CENTER'> <div class='newsSingle'> <div class='newsBgimg'><img src='" + imagem + "'> </div><a class='newsTitle' href='" + newsItem.url + "'>" + newsItem.title + "</a > <div class='newsResumo'>" + newsItem.excerpt + " </div> </div>");
             }
@@ -85,13 +86,10 @@ $(document).on("pageinit", "#main", function() {
 
     // Get Categories
     function getCategories(i) {
-        var count = 0;
         categories.length = 0;
         $.each(i, function(index, val) {
             /* iterate through array or object */
-            console.log(val.title);
-            categories[count] = val.title;
-            ++count;
+            categories.push(val.title);
         });
     }
     // Get Categories
@@ -101,25 +99,23 @@ $(document).on("pageinit", "#main", function() {
     function configs() {
         // Show Excerpt
         inputCheck.on('change', function() {
-            if ($(this).is(":checked")) {
-                mostrarResumo = "sim";
-                siteCodex();
-            } else {
-                mostrarResumo = "nao";
-                siteCodex();
-            }
+            mostrarResumo = $(this).is(":checked");
+
+            siteCodex();
         });
         // Show Excerpt
 
         // Change read style
         changeRead.on('change', function() {
-            if ($(this).val() == "lista") {
+
+            val = $(this).val();
+            if (val == "lista") {
                 readStyle = "lista";
-                siteCodex();
-            } else if ($(this).val() == "grid") {
+            } else if (val == "grid") {
                 readStyle = "grid";
-                siteCodex();
             }
+
+            siteCodex();
         });
         // Change read style
     }
